@@ -1,0 +1,139 @@
+{
+  "info": {
+    "_postman_id": "376a4aa7-1fc3-4c3c-b3c1-563ed56a9860",
+    "name": "Crud libros",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58559548",
+    "_collection_link": "https://go.postman.co/collection/58559548-376a4aa7-1fc3-4c3c-b3c1-563ed56a9860?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Crear libro",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.collectionVariables.set(\"id\", pm.response.json().id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"Clean Code\",\r\n  \"autor\": \"Robert C. Martin\",\r\n  \"paginas\": 464\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/libros",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar libro",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/libros",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener libro",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/libros/bc5c93f9-9555-4f73-a760-84913f7d04ec",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "libros",
+            "bc5c93f9-9555-4f73-a760-84913f7d04ec"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar libro",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"Clean Code\",\r\n  \"autor\": \"Robert C. Martin\",\r\n  \"paginas\": 480,\r\n  \"genero\": \"Programación\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/libros/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "libros",
+            "{{id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar libro",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/libros/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "libros",
+            "{{id}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "id",
+      "value": ""
+    }
+  ]
+}
